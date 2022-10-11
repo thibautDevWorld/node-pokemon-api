@@ -2,7 +2,7 @@ const { Pokemon } = require('../db/sequelize')
 const auth = require('../auth/auth')
 
 module.exports = (app) => {
-    app.get('/api/pokemons', (req, res) => {
+    app.get('/api/pokemons', auth, (req, res) => {
         Pokemon.findByPk(req.params.id).then(pokemon => {
             if(pokemon === null) {
                 const message = 'Le pokemon n\'existe pas. Réessayez avec un autre identifiant.'

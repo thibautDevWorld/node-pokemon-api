@@ -12,7 +12,7 @@ module.exports = (app) => {
           return res.status(404).json({ message });
         }
 
-         return bcrypt
+         return bcrypt  
           .compare(req.body.password, user.password)
           .then(isPasswordValid => {
             if (!isPasswordValid) {
